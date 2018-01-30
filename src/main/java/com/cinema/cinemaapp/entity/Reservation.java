@@ -8,13 +8,13 @@ public class Reservation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     @OneToOne
-    private int filmSchedulerId;
+    private Integer filmSchedulerId;
 
     @OneToOne
-    private int customerId;
+    private Integer customerId;
 
     /**
      * cascade
@@ -23,6 +23,43 @@ public class Reservation {
      */
     @OneToMany(cascade = CascadeType.ALL)
     private List<Seat> seats;
+
+
+    public Reservation() {
+    }
+
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getFilmSchedulerId() {
+        return filmSchedulerId;
+    }
+
+    public void setFilmSchedulerId(Integer filmSchedulerId) {
+        this.filmSchedulerId = filmSchedulerId;
+    }
+
+    public Integer getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(Integer customerId) {
+        this.customerId = customerId;
+    }
+
+    public List<Seat> getSeats() {
+        return seats;
+    }
+
+    public void setSeats(List<Seat> seats) {
+        this.seats = seats;
+    }
 
 
 }
